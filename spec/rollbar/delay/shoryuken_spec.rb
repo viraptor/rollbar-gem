@@ -35,7 +35,7 @@ describe Rollbar::Delay::Shoryuken do
       let(:sqs_queue) { double('non_default_queue') }
 
       before do
-        Rollbar.configure { |config| config.use_shoryuken(queue: 'non_default_queue') }
+        Rollbar.configure { |config| config.use_shoryuken(:queue => 'non_default_queue') }
       end
 
       it 'uses specified queue' do

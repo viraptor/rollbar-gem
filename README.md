@@ -893,7 +893,7 @@ The queues to report will default to```rollbar_{CURRENT_ENVIRONMENT}``` ex: if t
 You can also set a custom queue name:
 
 ```ruby
-config.use_shoryuken queue: 'my_queue'
+config.use_shoryuken :queue => 'my_queue'
 ```
 
 ### Resque

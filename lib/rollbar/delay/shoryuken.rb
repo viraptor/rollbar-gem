@@ -15,7 +15,7 @@ module Rollbar
       self.queue = "rollbar_#{Rollbar.configuration.environment}"
 
       def self.call(payload)
-        new.call(payload, queue: queue)
+        new.call(payload, :queue => queue)
       end
 
       def call(payload, options = {})
@@ -24,8 +24,8 @@ module Rollbar
 
       # not allowing bulk, to not double-report rollbars if one of them failed in bunch.
       shoryuken_options :auto_delete => true,
-        :body_parser => :json,
-        :retry_intervals => [60, 180, 360, 120_0, 360_0, 186_00]
+                        :body_parser => :json,
+                        :retry_intervals => [60, 180, 360, 120_0, 360_0, 186_00]
 
       def perform(_sqs_message, payload)
         Rollbar.process_from_async_handler(payload)
