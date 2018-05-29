@@ -24,7 +24,7 @@ describe Rollbar::Delay::Shoryuken do
       it 'uses default queue' do
         expect(Shoryuken::Client)
           .to receive(:queues)
-          .with('rollbar_test')
+          .with("rollbar_#{Rails.env}")
           .and_return(sqs_queue)
         expect(sqs_queue).to receive(:send_message)
         described_class.call(payload)
