@@ -56,5 +56,6 @@ end
 gem 'resque'
 
 gem 'shoryuken'
+gem 'aws-sdk-sqs'
 
 gemspec :path => '../'
