@@ -55,4 +55,6 @@ end
 
 gem 'resque'
 
+gem 'shoryuken'
+
 gemspec :path => '../'
